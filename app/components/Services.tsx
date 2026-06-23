@@ -88,7 +88,7 @@ const Services = () => {
                 className="absolute inset-0 object-cover transition-transform duration-1000 md:group-hover:scale-110"
               />
               {/* Glass Overlay */}
-              <div className="absolute inset-0 bg-indigo-950/90 md:bg-indigo-900/40 md:group-hover:bg-indigo-950/90 backdrop-blur-[2px] md:backdrop-blur-none md:group-hover:backdrop-blur-sm transition-all duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent md:bg-indigo-950/30 md:group-hover:bg-indigo-950/90 transition-all duration-500"></div>
 
               {/* Content */}
               <div className="relative h-full p-10 flex flex-col justify-end text-white">
