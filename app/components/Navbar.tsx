@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { HiMenuAlt3, HiX } from 'react-icons/hi'
+import Image from 'next/image'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -30,10 +31,21 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-20">
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="text-2xl font-black tracking-tighter"
+            className="flex items-center gap-2 cursor-pointer"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <span className={scrolled ? 'text-indigo-600' : 'text-white'}>FAJOS</span>
-            <span className="gradient-text">TECH</span>
+            <div className="relative w-10 h-10">
+              <Image
+                src="/logo.png"
+                alt="FajosTech Logo"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <div className="text-2xl font-black tracking-tighter">
+              <span className={scrolled ? 'text-indigo-600' : 'text-white'}>FAJOS</span>
+              <span className="gradient-text">TECH</span>
+            </div>
           </motion.div>
 
           {/* Desktop Menu */}
@@ -56,6 +68,7 @@ const Navbar = () => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className={scrolled ? 'text-gray-900' : 'text-white'}
+              aria-label={isOpen ? "Close menu" : "Open menu"}
             >
               {isOpen ? <HiX size={28} /> : <HiMenuAlt3 size={28} />}
             </button>

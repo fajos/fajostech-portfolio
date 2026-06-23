@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { TypeAnimation } from 'react-type-animation'
 
@@ -8,10 +9,12 @@ const Hero = () => {
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
-          alt="Digital background"
-          className="w-full h-full object-cover"
+          alt="FajosTech Digital Innovation Background"
+          fill
+          priority
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
       </div>

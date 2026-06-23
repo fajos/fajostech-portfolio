@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 
 const projects = [
@@ -95,6 +96,7 @@ const Portfolio = () => {
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`View project: ${project.title}`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -102,10 +104,11 @@ const Portfolio = () => {
               className="group relative bg-gray-900 rounded-3xl overflow-hidden aspect-[4/5] cursor-pointer shadow-2xl block"
             >
               {/* Image Background */}
-              <img
+              <Image
                 src={project.image}
                 alt={project.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100"
+                fill
+                className="absolute inset-0 object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100"
               />
 
               {/* Gradient Overlay */}

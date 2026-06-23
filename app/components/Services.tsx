@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { 
   FiSmartphone, 
@@ -80,10 +81,11 @@ const Services = () => {
               className="relative group h-[400px] rounded-3xl overflow-hidden shadow-xl"
             >
               {/* Background Image */}
-              <img
+              <Image
                 src={service.image}
                 alt={service.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                fill
+                className="absolute inset-0 object-cover transition-transform duration-700 group-hover:scale-110"
               />
               {/* Overlay */}
               <div className="absolute inset-0 bg-indigo-900/80 group-hover:bg-indigo-950/90 transition-colors duration-500"></div>

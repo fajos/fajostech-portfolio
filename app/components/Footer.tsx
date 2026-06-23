@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { FiGithub, FiTwitter, FiLinkedin, FiMail } from 'react-icons/fi'
 
 const Footer = () => {
@@ -6,7 +7,17 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-2xl font-bold gradient-text mb-4">Fajostech</h3>
+            <div className="flex items-center gap-2 mb-6">
+              <div className="relative w-8 h-8">
+                <Image
+                  src="/logo.png"
+                  alt="FajosTech Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <h3 className="text-2xl font-bold gradient-text">Fajostech</h3>
+            </div>
             <p className="text-gray-400">
               Building digital solutions that drive business growth and innovation.
             </p>

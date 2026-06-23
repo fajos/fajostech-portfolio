@@ -37,6 +37,19 @@ NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
 NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
 ```
 
+## SEO & Google Search Console
+
+This project is pre-optimized for SEO with:
+- Dynamic Sitemap generation at `/sitemap.xml`
+- Robots.txt configuration at `/robots.txt`
+- JSON-LD Structured Data for business indexing.
+
+### To verify your site on Google Search Console:
+1. Deploy the site to your production domain.
+2. Add the domain as a property in GSC.
+3. If using **HTML Tag verification**, add the provided `google-site-verification` code to the metadata in `app/layout.tsx`.
+4. Submit your sitemap at `https://yourdomain.com/sitemap.xml`.
+
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
 ## Deploy on Vercel

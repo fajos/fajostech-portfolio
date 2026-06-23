@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import emailjs from '@emailjs/browser'
@@ -55,10 +56,11 @@ const Contact = () => {
     <section id="contact" className="relative py-24 overflow-hidden">
       {/* Background with Image and Blur */}
       <div className="absolute inset-0 z-0">
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1534536281715-e28d76689b4d?q=80&w=2070&auto=format&fit=crop"
-          alt="Contact background"
-          className="w-full h-full object-cover"
+          alt="Contact FajosTech Support"
+          fill
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-indigo-950/90 backdrop-blur-sm"></div>
       </div>
