@@ -25,10 +25,10 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl md:text-8xl font-extrabold mb-6 tracking-tight"
+            className="text-5xl md:text-8xl font-extrabold mb-6 tracking-tight leading-tight"
           >
-            <span className="text-white">Fajos</span>
-            <span className="gradient-text">tech</span>
+            <span className="text-white">Innovate. Build.</span><br />
+            <span className="gradient-text">Deliver.</span>
           </motion.h1>
           
           <motion.div

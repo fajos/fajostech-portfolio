@@ -46,8 +46,8 @@ const services = [
     icon: FiPlusCircle,
     title: 'Feature Integration',
     description: 'Add new functionalities and features to your existing applications without disruption.',
-    image: 'https://images.unsplash.com/photo-1551288049-bbbda536339a?q=80&w=2070&auto=format&fit=crop'
-  },
+    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop'
+  }
 ]
 
 const Services = () => {
@@ -85,21 +85,22 @@ const Services = () => {
                 src={service.image}
                 alt={service.title}
                 fill
-                className="absolute inset-0 object-cover transition-transform duration-700 group-hover:scale-110"
+                className="absolute inset-0 object-cover transition-transform duration-700 md:group-hover:scale-110"
               />
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-indigo-900/80 group-hover:bg-indigo-950/90 transition-colors duration-500"></div>
+              {/* Overlay - Darker on mobile for readability */}
+              <div className="absolute inset-0 bg-indigo-950/90 md:bg-indigo-900/80 md:group-hover:bg-indigo-950/90 transition-colors duration-500"></div>
 
               {/* Content */}
               <div className="relative h-full p-8 flex flex-col justify-end text-white">
-                <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-6 md:group-hover:scale-110 transition-transform duration-500">
                   <service.icon className="text-3xl text-white" />
                 </div>
                 <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-                <p className="text-gray-200 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">
+                {/* Visible on mobile, hidden on desktop until hover */}
+                <p className="text-gray-200 text-sm leading-relaxed opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-0 md:translate-y-4 group-hover:translate-y-0">
                   {service.description}
                 </p>
-                <div className="mt-6 w-12 h-1 bg-indigo-400 group-hover:w-full transition-all duration-500"></div>
+                <div className="mt-6 w-full md:w-12 h-1 bg-indigo-400 md:group-hover:w-full transition-all duration-500"></div>
               </div>
             </motion.div>
           ))}
