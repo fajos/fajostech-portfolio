@@ -1,7 +1,8 @@
 'use client'
 
+import { useState } from 'react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const projects = [
   {
@@ -70,7 +71,15 @@ const projects = [
   },
 ]
 
+const categories = ['All', 'Mobile App', 'Website', 'Web Application']
+
 const Portfolio = () => {
+  const [activeCategory, setActiveCategory] = useState('All')
+
+  const filteredProjects = projects.filter(project =>
+    activeCategory === 'All' || project.category === activeCategory
+  )
+
   return (
     <section id="portfolio" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -79,71 +88,94 @@ const Portfolio = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-black mb-6">
             Real-World <span className="gradient-text">Impact</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-12">
             From financial AI to e-learning platforms, here are the digital solutions we've built and deployed.
           </p>
+
+          {/* Filter Tabs */}
+          <div className="flex flex-wrap justify-center gap-4">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-8 py-3 rounded-full font-bold transition-all duration-300 ${
+                  activeCategory === cat
+                    ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-200'
+                    : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {projects.map((project, index) => (
-            <motion.a
-              key={index}
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`View project: ${project.title}`}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="group relative bg-gray-900 rounded-3xl overflow-hidden aspect-[4/5] cursor-pointer shadow-2xl block"
-            >
-              {/* Image Background */}
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                className="absolute inset-0 object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100"
-              />
+        <motion.div
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+        >
+          <AnimatePresence mode='popLayout'>
+            {filteredProjects.map((project) => (
+              <motion.a
+                layout
+                key={project.title}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.4 }}
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`View project: ${project.title}`}
+                className="group relative bg-gray-900 rounded-3xl overflow-hidden aspect-[4/5] cursor-pointer shadow-2xl block border border-gray-100"
+              >
+                {/* Image Background */}
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="absolute inset-0 object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100"
+                />
 
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent opacity-80 transition-opacity group-hover:opacity-90"></div>
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent opacity-80 transition-opacity group-hover:opacity-90"></div>
 
-              {/* Content */}
-              <div className="absolute inset-0 p-8 flex flex-col justify-end transform transition-transform duration-500">
-                <div className="mb-4">
-                  <span className="px-3 py-1 bg-indigo-600 text-white text-xs font-bold rounded-full uppercase tracking-widest">
-                    {project.category}
-                  </span>
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-gray-300 text-sm mb-6 line-clamp-3 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tech.split(', ').map((t, i) => (
-                    <span key={i} className="text-[10px] text-gray-400 border border-gray-700 px-2 py-1 rounded">
-                      {t}
+                {/* Content */}
+                <div className="absolute inset-0 p-8 flex flex-col justify-end transform transition-transform duration-500">
+                  <div className="mb-4">
+                    <span className="px-3 py-1 bg-indigo-600 text-white text-xs font-bold rounded-full uppercase tracking-widest">
+                      {project.category}
                     </span>
-                  ))}
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-300 text-sm mb-6 line-clamp-3 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tech.split(', ').map((t, i) => (
+                      <span key={i} className="text-[10px] text-gray-400 border border-gray-700 px-2 py-1 rounded">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  <motion.div
+                    whileHover={{ x: 5 }}
+                    className="flex items-center text-white font-bold group/btn"
+                  >
+                    Explore Project <span className="ml-2 transition-transform group-hover/btn:translate-x-1">→</span>
+                  </motion.div>
                 </div>
-                <motion.div
-                  whileHover={{ x: 5 }}
-                  className="flex items-center text-white font-bold group/btn"
-                >
-                  Explore Project <span className="ml-2 transition-transform group-hover/btn:translate-x-1">→</span>
-                </motion.div>
-              </div>
-            </motion.a>
-          ))}
-        </div>
+              </motion.a>
+            ))}
+          </AnimatePresence>
+        </motion.div>
       </div>
     </section>
   )

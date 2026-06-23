@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { TypeAnimation } from 'react-type-animation'
+import Magnetic from './Magnetic'
 
 const Hero = () => {
   return (
@@ -68,24 +69,26 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-6 justify-center"
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
-            <motion.a
-              whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(99, 102, 241, 0.4)" }}
-              whileTap={{ scale: 0.95 }}
-              href="#contact"
-              className="px-10 py-4 bg-indigo-600 text-white rounded-full font-bold text-lg hover:bg-indigo-500 transition-all"
-            >
-              Start Your Project
-            </motion.a>
-            <motion.a
-              whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.1)" }}
-              whileTap={{ scale: 0.95 }}
-              href="#portfolio"
-              className="px-10 py-4 border-2 border-white/30 text-white rounded-full font-bold text-lg backdrop-blur-sm transition-all"
-            >
-              View Our Work
-            </motion.a>
+            <Magnetic>
+              <motion.a
+                whileHover={{ boxShadow: "0 0 30px rgba(99, 102, 241, 0.6)" }}
+                href="#contact"
+                className="px-10 py-4 bg-indigo-600 text-white rounded-full font-bold text-lg hover:bg-indigo-500 transition-all block"
+              >
+                Start Your Project
+              </motion.a>
+            </Magnetic>
+            <Magnetic>
+              <motion.a
+                whileHover={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }}
+                href="#portfolio"
+                className="px-10 py-4 border-2 border-white/30 text-white rounded-full font-bold text-lg backdrop-blur-sm transition-all block"
+              >
+                View Our Work
+              </motion.a>
+            </Magnetic>
           </motion.div>
         </div>
       </div>

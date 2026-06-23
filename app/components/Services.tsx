@@ -78,29 +78,28 @@ const Services = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ y: -10 }}
-              className="relative group h-[400px] rounded-3xl overflow-hidden shadow-xl"
+              className="relative group h-[450px] rounded-[2rem] overflow-hidden shadow-2xl shadow-indigo-200/50 border border-white"
             >
               {/* Background Image */}
               <Image
                 src={service.image}
                 alt={service.title}
                 fill
-                className="absolute inset-0 object-cover transition-transform duration-700 md:group-hover:scale-110"
+                className="absolute inset-0 object-cover transition-transform duration-1000 md:group-hover:scale-110"
               />
-              {/* Overlay - Darker on mobile for readability */}
-              <div className="absolute inset-0 bg-indigo-950/90 md:bg-indigo-900/80 md:group-hover:bg-indigo-950/90 transition-colors duration-500"></div>
+              {/* Glass Overlay */}
+              <div className="absolute inset-0 bg-indigo-950/90 md:bg-indigo-900/40 md:group-hover:bg-indigo-950/90 backdrop-blur-[2px] md:backdrop-blur-none md:group-hover:backdrop-blur-sm transition-all duration-500"></div>
 
               {/* Content */}
-              <div className="relative h-full p-8 flex flex-col justify-end text-white">
-                <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-6 md:group-hover:scale-110 transition-transform duration-500">
+              <div className="relative h-full p-10 flex flex-col justify-end text-white">
+                <div className="w-16 h-16 bg-white/10 backdrop-blur-xl rounded-2xl flex items-center justify-center mb-6 border border-white/20 md:group-hover:scale-110 transition-transform duration-500">
                   <service.icon className="text-3xl text-white" />
                 </div>
-                <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-                {/* Visible on mobile, hidden on desktop until hover */}
-                <p className="text-gray-200 text-sm leading-relaxed opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-0 md:translate-y-4 group-hover:translate-y-0">
+                <h3 className="text-2xl font-black mb-4 tracking-tight">{service.title}</h3>
+                <p className="text-gray-200 text-sm leading-relaxed opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-500 transform translate-y-0 md:translate-y-8 md:group-hover:translate-y-0">
                   {service.description}
                 </p>
-                <div className="mt-6 w-full md:w-12 h-1 bg-indigo-400 md:group-hover:w-full transition-all duration-500"></div>
+                <div className="mt-8 w-full md:w-12 h-1.5 bg-indigo-400 rounded-full md:group-hover:w-full transition-all duration-700"></div>
               </div>
             </motion.div>
           ))}
