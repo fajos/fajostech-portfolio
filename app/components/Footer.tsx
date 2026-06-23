@@ -43,14 +43,16 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Connect With Us</h4>
             <div className="flex space-x-4">
               {[
-                { icon: FiGithub, href: '#' },
-                { icon: FiTwitter, href: '#' },
-                { icon: FiLinkedin, href: '#' },
-                { icon: FiMail, href: '#' },
+                { icon: FiGithub, href: 'https://github.com/fajos' },
+                { icon: FiTwitter, href: 'https://x.com/fajostheprince' },
+                { icon: FiLinkedin, href: 'https://www.linkedin.com/in/femi-adeyemi-30832056/' },
+                { icon: FiMail, href: 'mailto:fajostech@gmail.com' },
               ].map((social, index) => (
                 <a
                   key={index}
                   href={social.href}
+                  target={social.href.startsWith('http') ? "_blank" : undefined}
+                  rel={social.href.startsWith('http') ? "noopener noreferrer" : undefined}
                   className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-indigo-600 transition-colors"
                 >
                   <social.icon className="text-lg" />

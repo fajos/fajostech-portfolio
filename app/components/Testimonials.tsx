@@ -1,26 +1,27 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FiMessageSquare, FiUser } from 'react-icons/fi'
+import { FiMessageSquare } from 'react-icons/fi'
+import Image from 'next/image'
 
 const testimonials = [
   {
-    name: 'Samuel Adeniyi',
-    role: 'CEO, Finish Rich Africa',
+    name: 'Temilola Adeyemi',
+    role: 'Founder, Finish Rich Africa',
     content: 'FajosTech transformed our vision into a world-class financial platform. Their attention to detail and technical expertise is unmatched in the African tech space.',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop'
+    image: '/temmy.jpg'
   },
   {
-    name: 'Joseph Ajao',
-    role: 'Founder, Jah Solar Energy',
+    name: 'Olaomo Jah Daniel',
+    role: 'CEO, Jah Solar Energy',
     content: 'The solar installation platform they built for us has significantly increased our lead generation. Professional, timely, and highly skilled developers.',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1974&auto=format&fit=crop'
+    image: '/jah.jpg'
   },
   {
-    name: 'Dr. Sarah K.',
-    role: 'Director, SBC Welfare',
+    name: 'Saints Builder Church',
+    role: 'Founder, SBC Welfare',
     content: 'The management system FajosTech developed has streamlined our internal processes remarkably. It is intuitive and handles our complex data with ease.',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop'
+    image: '/saints.png'
   }
 ]
 
@@ -63,11 +64,12 @@ const Testimonials = () => {
               className="bg-white/10 backdrop-blur-lg p-8 rounded-3xl border border-white/10 hover:bg-white/15 transition-colors"
             >
               <div className="flex items-center mb-6">
-                <div className="w-14 h-14 rounded-full overflow-hidden mr-4 border-2 border-indigo-400">
-                  <img
+                <div className="w-14 h-14 rounded-full overflow-hidden mr-4 border-2 border-indigo-400 relative">
+                  <Image
                     src={testimonial.image}
                     alt={testimonial.name}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                 </div>
                 <div>

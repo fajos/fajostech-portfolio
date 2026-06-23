@@ -81,24 +81,29 @@ const Contact = () => {
             </p>
             
             <div className="space-y-6">
-              <div className="flex items-center space-x-4 text-white">
-                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Lagos+Nigeria"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-4 text-white group cursor-pointer"
+              >
+                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center border border-white/20 group-hover:bg-indigo-600 transition-colors">
                   <span className="text-xl">📍</span>
                 </div>
                 <div>
                   <h4 className="font-bold">Location</h4>
-                  <p className="text-gray-400">Remote / Worldwide</p>
+                  <p className="text-gray-400 group-hover:text-white transition-colors">Lagos, Nigeria / Remote</p>
                 </div>
-              </div>
-              <div className="flex items-center space-x-4 text-white">
-                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
+              </a>
+              <a href="mailto:fajostech@gmail.com" className="flex items-center space-x-4 text-white group cursor-pointer">
+                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center border border-white/20 group-hover:bg-indigo-600 transition-colors">
                   <span className="text-xl">📧</span>
                 </div>
                 <div>
                   <h4 className="font-bold">Email</h4>
-                  <p className="text-gray-400">fajostech@gmail.com</p>
+                  <p className="text-gray-400 group-hover:text-white transition-colors">fajostech@gmail.com</p>
                 </div>
-              </div>
+              </a>
             </div>
           </motion.div>
 
