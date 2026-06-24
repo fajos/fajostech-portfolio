@@ -132,6 +132,8 @@ const Portfolio = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`View project: ${project.title}`}
+                data-cursor-variant="view"
+                data-cursor-text="View"
                 className="group relative bg-gray-900 rounded-3xl overflow-hidden aspect-[4/5] cursor-pointer shadow-2xl block border border-gray-100"
               >
                 {/* Image Background */}

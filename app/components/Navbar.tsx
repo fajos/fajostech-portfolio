@@ -32,6 +32,7 @@ const Navbar = () => {
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="flex items-center gap-2 cursor-pointer"
+            data-cursor-variant="pointer"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
             <div className="relative w-10 h-10">
@@ -55,6 +56,7 @@ const Navbar = () => {
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
+                data-cursor-variant="pointer"
                 className={`text-sm font-bold uppercase tracking-widest transition-all hover:scale-110 ${
                   scrolled ? 'text-gray-900 hover:text-indigo-600' : 'text-white/90 hover:text-white'
                 }`}

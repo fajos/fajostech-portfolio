@@ -76,6 +76,8 @@ const Hero = () => {
               <motion.a
                 whileHover={{ boxShadow: "0 0 30px rgba(99, 102, 241, 0.6)" }}
                 href="#contact"
+                data-cursor-variant="pointer"
+                data-cursor-text="Let's Go"
                 className="px-10 py-4 bg-indigo-600 text-white rounded-full font-bold text-lg hover:bg-indigo-500 transition-all block"
               >
                 Start Your Project
@@ -83,8 +85,11 @@ const Hero = () => {
             </Magnetic>
             <Magnetic>
               <motion.a
+                initial={{ backgroundColor: "rgba(255, 255, 255, 0)" }}
                 whileHover={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }}
                 href="#portfolio"
+                data-cursor-variant="pointer"
+                data-cursor-text="Work"
                 className="px-10 py-4 border-2 border-white/30 text-white rounded-full font-bold text-lg backdrop-blur-sm transition-all block"
               >
                 View Our Work

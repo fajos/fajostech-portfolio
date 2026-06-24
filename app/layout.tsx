@@ -6,6 +6,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import CustomCursor from './components/CustomCursor'
 import FloatingWhatsApp from './components/FloatingWhatsApp'
+import SmoothScroll from './components/SmoothScroll'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -150,7 +151,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <Navbar />
-        {children}
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
         <Footer />
         <FloatingWhatsApp />
       </body>

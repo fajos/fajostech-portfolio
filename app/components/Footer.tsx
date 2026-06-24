@@ -31,6 +31,7 @@ const Footer = () => {
                 <li key={link}>
                   <a
                     href={`#${link.toLowerCase()}`}
+                    data-cursor-variant="pointer"
                     className="text-gray-400 hover:text-white transition-colors"
                   >
                     {link}
@@ -54,6 +55,7 @@ const Footer = () => {
                   href={social.href}
                   target={social.href.startsWith('http') ? "_blank" : undefined}
                   rel={social.href.startsWith('http') ? "noopener noreferrer" : undefined}
+                  data-cursor-variant="pointer"
                   className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-indigo-600 transition-colors"
                 >
                   <social.icon className="text-lg" />

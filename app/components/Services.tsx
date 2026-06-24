@@ -78,6 +78,8 @@ const Services = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ y: -10 }}
+              data-cursor-variant="pointer"
+              data-cursor-text="Service"
               className="relative group h-[450px] rounded-[2rem] overflow-hidden shadow-2xl shadow-indigo-200/50 border border-white"
             >
               {/* Background Image */}
