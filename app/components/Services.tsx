@@ -85,6 +85,7 @@ const Services = () => {
                 src={service.image}
                 alt={service.title}
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="absolute inset-0 object-cover transition-transform duration-1000 md:group-hover:scale-110"
               />
               {/* Glass Overlay */}

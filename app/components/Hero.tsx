@@ -15,6 +15,7 @@ const Hero = () => {
           alt="FajosTech Digital Innovation Background"
           fill
           priority
+          sizes="100vw"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/60"></div>

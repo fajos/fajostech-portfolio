@@ -13,6 +13,7 @@ const Footer = () => {
                   src="/logo.png"
                   alt="FajosTech Logo"
                   fill
+                  sizes="32px"
                   className="object-contain"
                 />
               </div>

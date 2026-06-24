@@ -39,6 +39,7 @@ const Navbar = () => {
                 src="/logo.png"
                 alt="FajosTech Logo"
                 fill
+                sizes="40px"
                 className="object-contain"
               />
             </div>

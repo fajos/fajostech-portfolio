@@ -60,6 +60,7 @@ const Contact = () => {
           src="https://images.unsplash.com/photo-1534536281715-e28d76689b4d?q=80&w=2070&auto=format&fit=crop"
           alt="Contact FajosTech Support"
           fill
+          sizes="100vw"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-indigo-950/90 backdrop-blur-sm"></div>
